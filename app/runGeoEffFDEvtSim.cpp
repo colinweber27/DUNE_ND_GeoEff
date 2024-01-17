@@ -149,7 +149,7 @@ int main(int argc, char** argv)
   // Declare variables used in this program
   //
   int nentries = 0; // Total input events
-  float vetoEnergyFD; // Total hadron deposited energy in FD veto region
+  double vetoEnergyFD; // Total hadron deposited energy in FD veto region
   int iwritten = 0; // Output event counter
   float decayZbeamCoord; // Decay point (neutrino production point) in beam coordinate [cm]
   float decayXdetCoord; // Decay point (neutrino production point) in detector coordinate on the x-axis [cm]
