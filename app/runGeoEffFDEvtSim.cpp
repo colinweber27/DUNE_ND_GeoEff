@@ -530,7 +530,7 @@ int main(int argc, char** argv)
   ThrowsFD->Branch("throwRot",  &throwRot);
 
   // Mean neutrino production point (beam coordinate) on z axis as a function of ND off-axis position
-  TGraph* gDecayZ = new TGraph(14, OffAxisPoints, meanPDPZ);
+  TGraph* gDecayZ = new TGraph(27, OffAxisPoints, meanPDPZ);
   //
   //------------------------------------------------------------------------------
   //------------------------------------------------------------------------------
@@ -863,7 +863,7 @@ int main(int argc, char** argv)
       for ( double i_vtx_vx : ND_vtx_vx_vec )
       {
         // Interpolate event neutrino production point (beam coordinate)
-        decayZbeamCoord = gDecayZ->Eval( i_ND_off_axis_pos + i_vtx_vx - detRefBeamCoord[0] );
+        decayZbeamCoord = gDecayZ->Eval( i_ND_off_axis_pos/100. + i_vtx_vx/100. - detRefBeamCoord[0] );
 
         // Calculate neutrino production point in detector coordinate
         decayYdetCoord = beamRefDetCoord[1] - detRefBeamCoord[1]*cos(beamLineRotation) + ( decayZbeamCoord - detRefBeamCoord[2] )*sin(beamLineRotation);
