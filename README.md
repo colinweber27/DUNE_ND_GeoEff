@@ -2,30 +2,17 @@
 
 [First time only]
 ```
-cd /dune/app/users/<your_username>
-mkdir testn2fd
-cd testn2fd
+cd /dune/app/users/$USER
+newdir=NDFD_LeptonSwapper
+mkdir $newder; cd $newdir
 
-git clone --recurse-submodules -b N2FD https://github.com/weishi10141993/DUNE_ND_GeoEff.git      # Get geoEff library
-# Note for git version (git --version) before 2.13, use: git clone --recursive -b N2FD https://github.com/weishi10141993/DUNE_ND_GeoEff.git
+git clone --recurse-submodules -b N2FD https://github.com/colinweber27/DUNE_ND_GeoEff.git      # Get geoEff library
 cd DUNE_ND_GeoEff
-source setup.sh                                                                                  # Necessary setups for build
+# Now enter an SL7 container, if not there already
+source setup.sh # Sets up compatible software products w/ UPS
 cmake -DPYTHON_EXECUTABLE:FILEPATH=`which python` .
-make -j geoEff                                                                                   # Build geoEff
-make -j pyGeoEff                                                                                 # Build pygeoEff
-```
-
-# ND numu to FD numu event pair
-
-```
-source setup.sh
-
-cd app
-python3 Edepsim_ana.py /dune/data/users/awilkins/extrapolation/edep.LArBath.NDGenieGen.root
-
-# The first time you may need to install a few packages via pip install, depending on what it complains when you run, e.g.:
-pip install --target=/dune/app/users/weishi/python3libs torch --upgrade
-pip install --target=/dune/app/users/weishi/python3libs scipy --upgrade
+make -j geoEff # Build geoEff
+make -j pyGeoEff # Build pygeoEff
 ```
 
 # ND numu to FD nue event pair
